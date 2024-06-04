@@ -1,0 +1,16 @@
+model Account {
+  id             Int      @id @default(autoincrement())
+  subscription   String
+  subscriptionId String
+  dateregister   DateTime
+  name           String
+  companyname    String
+  email          String   @unique
+  address        String
+  userid         String   @unique
+  paymentmethod  String
+  accCode        String?
+  settings       Json
+  otp            String?
+  assignNumber   String?
+}

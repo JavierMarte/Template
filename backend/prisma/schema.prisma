@@ -1,0 +1,27 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+
+model Account {
+  id            Int      @unique @default(autoincrement())
+  subscription  String
+  dateregister  DateTime
+  name          String
+  companyname   String
+  email         String   @unique
+  address       String
+  userid        String   @unique
+  paymentmethod String
+  settings      Json
+  otp           String?
+  assignNumber  String?
+  accCode       String?
+}

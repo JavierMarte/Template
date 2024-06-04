@@ -1,0 +1,53 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "echo 'No build step required.'",
+    "dev": "nodemon server.js",
+    "start:staging": "env-cmd -f .env.staging node server.js",
+    "start:local": "env-cmd -f .env.local node server.js",
+    "db:migrate": "npm run db:generate && prisma migrate dev",
+    "db:generate": "find ./prisma/schemas -type f -name *.prisma -exec awk 1 {} + >./prisma/schema.prisma && prisma generate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-amplify/cli": "^12.11.1",
+    "@prisma/adapter-pg": "^5.12.1",
+    "@prisma/client": "^5.12.1",
+    "@sendgrid/mail": "^8.1.3",
+    "aws-sdk": "^2.1633.0",
+    "axios": "^1.6.5",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "env-cmd": "^10.1.0",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.5.0",
+    "express-session": "^1.17.3",
+    "express-ws": "^5.0.2",
+    "jsonwebtoken": "^9.0.2",
+    "moment": "^2.30.1",
+    "multer": "^1.4.5-lts.1",
+    "multer-s3": "^3.0.1",
+    "mysql2": "^3.7.0",
+    "node-localstorage": "^3.0.5",
+    "openai": "^4.38.2",
+    "pg": "^8.11.5",
+    "plaid": "^23.0.0",
+    "socket.io": "^4.7.5",
+    "stripe": "^15.6.0",
+    "twilio": "^5.0.4",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "prisma": "^5.12.1"
+  }
+}
